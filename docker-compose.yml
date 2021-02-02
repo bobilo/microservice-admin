@@ -9,10 +9,12 @@ services:
    ports:
      - 8020:8020
    extra_hosts:
-     - "otherhost:192.168.0.20"
+     - "otherhost:172.168.0.20"
 
    volumes:
      - .:/app
+   env_file:
+     - ./.env.dev
    depends_on:
      - db
 
@@ -25,14 +27,13 @@ services:
       - db
 
   db:
-    image: mysql:5.7.22
-    restart: always
-    environment:
-      MYSQL_DATABASE: admin
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
+    image: postgres:12.0-alpine
     volumes:
-      - .dbdata:/var/lib/mysql
-    ports:
-      - 33066:3306
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=traincascade
+      - POSTGRES_DB=admin
+
+volumes:
+  postgres_data:

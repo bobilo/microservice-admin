@@ -25,7 +25,7 @@ SECRET_KEY = 'o$@$^lch*^i_2hghe@fj_dnhr9g%=05qrtlv6a_x2canr_z+k-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.20', '172.26.0.3', 'localhost']
+ALLOWED_HOSTS = ['172.168.0.20', '172.26.0.3', 'localhost']
 
 
 # Application definition
@@ -80,12 +80,12 @@ WSGI_APPLICATION = 'admin.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'admin',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'USER': 'admin',
+        'PASSWORD': 'traincascade',
         'HOST': 'db',
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
 

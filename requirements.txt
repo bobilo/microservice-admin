@@ -9,6 +9,7 @@ idna==2.10
 mysqlclient==2.0.1
 pika==1.1.0
 Pillow==8.1.0
+psycopg2==2.8.6
 pytz==2020.5
 requests==2.25.1
 sqlparse==0.4.1
